@@ -1072,8 +1072,8 @@ module.exports = function (RED) {
         method = msg.params.method;
       }
 
-      username = sUsername || this.credentials.username;
-      password = sPassword || this.credentials.password || config.password;
+      username = msg.username || sUsername || this.credentials.username;
+      password = msg.password || sPassword || this.credentials.password || config.password;
 
       endpoint = sEndpoint;
       if ((!config['cwm-default-endpoint']) && config['cwm-service-endpoint']) {
